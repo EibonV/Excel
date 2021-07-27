@@ -37,11 +37,49 @@ def get_sheetcol_num(sheet):
     return sheet.ncols
 
 #获取sheet下的数据
-def get_sheet_data(sheet,row):
-    for i in range(row):
-        values = sheet.row_values(i)
+def get_sheet_data(sheet,col):
+    for i in range(col):
+        values = sheet.col_values(i)
         all_data1.append(values)
     return all_data1
 
+#获取“项目名称”行列
+def get_xiangmu(sheet,row,col):
+    for i in range(row):
+        for j in range(col):
+            xiangmu_value = sheet.cell(i,j).value
+            if xiangmu_value == "项目名称":
+                xiangmu = [i,j]
+                return xiangmu
+                break
 
+#获取“项目编号”行列
+def get_bianhao(sheet,row,col):
+    for i in range(row):
+        for j in range(col):
+            bianhao_value = sheet.cell(i,j).value
+            if bianhao_value == "项目编号":
+                bianhao = [i,j]
+                return bianhao
+                break
 
+#获取“验收日期”行列
+def get_date(sheet,row,col):
+    for i in range(row):
+        for j in range(col):
+            date_value = sheet.cell(i,j).value
+            if date_value == "项目编号":
+                date = [i,j]
+                return date
+                break
+
+if __name__=='__main__':
+    all_exce = get_exce()
+    #得到要合并的所有exce表格数据
+    if(all_exce == 0):
+        print("该目录下无.xlsx文件！请检查您输入的目录是否有误！")
+        os.system('pause')
+        exit()
+    all_data1 = [] #用于保存所有列的数据
+    
+    
