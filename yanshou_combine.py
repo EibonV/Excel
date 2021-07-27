@@ -33,4 +33,14 @@ def get_sheetrow_num(sheet):
     return sheet.nrows
 
 #获取sheet下有多少列数据
+def get_sheetcol_num(sheet):
+    return sheet.ncols
+
+#获取sheet下的数据
+def get_sheet_data(sheet,row):
+    for i in range(row):
+        if (i == 0):
+            continue
+
+
 
