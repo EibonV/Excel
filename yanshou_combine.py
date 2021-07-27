@@ -39,8 +39,9 @@ def get_sheetcol_num(sheet):
 #获取sheet下的数据
 def get_sheet_data(sheet,row):
     for i in range(row):
-        if (i == 0):
-            continue
+        values = sheet.row_values(i)
+        all_data1.append(values)
+    return all_data1
 
 
 
