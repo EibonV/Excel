@@ -41,11 +41,9 @@ def get_sheetcol_num(sheet):
 #获取sheet下所需列的数据
 def get_sheet_data(sheet,row,col):
     all_data0 = []
-    values = sheet.col_values(col)
-    all_data0.append(values)
+    all_data0 = sheet.col_values(col)
     for i in range(row):
         del(all_data0[0])
-
     return all_data0
 
 #获取“项目名称”行列
@@ -96,24 +94,24 @@ if __name__=='__main__':
 
     #获取项目名称数据
         for sheet in range(len(sheets)):
-            sheetrow = get_sheetrow_num(sheet) #获取列表总行数
-            sheetcol = get_sheetcol_num(sheet) #获取列表总列数
-            xiangmu = get_xiangmu(sheet,sheetrow,sheetcol) #获取项目名称所在行列
-            all_data1 = get_sheet_data(sheet,xiangmu[0],xiangmu[1]) #获取项目名称所有数据
+            sheetrow = get_sheetrow_num(sheets[sheet]) #获取列表总行数
+            sheetcol = get_sheetcol_num(sheets[sheet]) #获取列表总列数
+            xiangmu = get_xiangmu(sheets[sheet],sheetrow,sheetcol) #获取项目名称所在行列
+            all_data1 = get_sheet_data(sheets[sheet],xiangmu[0],xiangmu[1]) #获取项目名称所有数据
 
     #获取工程编号数据
         for sheet in range(len(sheets)):
-            sheetrow = get_sheetrow_num(sheet) #获取列表总行数
-            sheetcol = get_sheetcol_num(sheet) #获取列表总列数
-            bianhao = get_bianhao(sheet,sheetrow,sheetcol)
-            all_data2 = get_sheet_data(sheet,bianhao[0],bianhao[1])
+            sheetrow = get_sheetrow_num(sheets[sheet]) #获取列表总行数
+            sheetcol = get_sheetcol_num(sheets[sheet]) #获取列表总列数
+            bianhao = get_bianhao(sheets[sheet],sheetrow,sheetcol)
+            all_data2 = get_sheet_data(sheets[sheet],bianhao[0],bianhao[1])
 
     #获取验收时间数据
         for sheet in range(len(sheets)):
-            sheetrow = get_sheetrow_num(sheet) #获取列表总行数
-            sheetcol = get_sheetcol_num(sheet) #获取列表总列数
-            date = get_date(sheet,sheetrow,sheetcol)
-            all_data3 = get_sheet_data(sheet,date[0],date[1])
+            sheetrow = get_sheetrow_num(sheets[sheet]) #获取列表总行数
+            sheetcol = get_sheetcol_num(sheets[sheet]) #获取列表总列数
+            date = get_date(sheets[sheet],sheetrow,sheetcol)
+            all_data3 = get_sheet_data(sheets[sheet],date[0],date[1])
 
     #写入新表
     #新建表格
